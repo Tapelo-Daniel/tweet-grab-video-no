@@ -2,7 +2,12 @@
 import React from 'react';
 import { Clock, CheckCircle } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { 
+  Tooltip, 
+  TooltipContent, 
+  TooltipProvider, 
+  TooltipTrigger 
+} from '@/components/ui/tooltip';
 
 interface AuthorInfoProps {
   author: {
