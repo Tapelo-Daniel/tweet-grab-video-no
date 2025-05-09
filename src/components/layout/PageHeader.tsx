@@ -79,7 +79,9 @@ const PageHeader = ({
   
   const pageTitle = getPageTitle();
   
-  const handleMenuClick = () => {
+  const handleMenuClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    console.log('PageHeader menu clicked, opening mobile sidebar');
     setOpenMobile(true);
   };
 

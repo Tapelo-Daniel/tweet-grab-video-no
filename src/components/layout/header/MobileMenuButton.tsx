@@ -11,7 +11,8 @@ interface MobileMenuButtonProps {
 const MobileMenuButton = ({ onClick }: MobileMenuButtonProps) => {
   const { setOpenMobile } = useSidebar();
   
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     console.log('Mobile menu button clicked, opening sidebar');
     setOpenMobile(true);
     if (onClick) onClick();

@@ -44,7 +44,8 @@ const MobileSidebar = ({
   
   const planType = formatPlanType(user?.subscriptionTier);
 
-  const handleAuthAction = () => {
+  const handleAuthAction = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (isAuthenticated) {
       logout();
     } else {

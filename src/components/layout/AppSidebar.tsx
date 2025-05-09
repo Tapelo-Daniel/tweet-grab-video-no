@@ -39,6 +39,11 @@ const AppSidebar = ({ className }: AppSidebarProps = {}) => {
     setOpenMobile(false);
   };
 
+  const handleClose = () => {
+    console.log('Explicitly closing mobile sidebar');
+    setOpenMobile(false);
+  };
+
   // Update notification badge in navItems
   const updatedNavItems = navItems.map(item => 
     item.to === '/notifications' 
@@ -63,10 +68,7 @@ const AppSidebar = ({ className }: AppSidebarProps = {}) => {
           navItems={updatedNavItems}
           legalItems={legalItems}
           currentPath={location.pathname}
-          onClose={() => {
-            console.log('Closing mobile sidebar');
-            setOpenMobile(false);
-          }}
+          onClose={handleClose}
           onLinkClick={handleLinkClick}
         />
       )}

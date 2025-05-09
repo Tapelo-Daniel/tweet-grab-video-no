@@ -49,7 +49,10 @@ const Index = () => {
         <Button 
           variant="ghost" 
           size="icon" 
-          onClick={handleMenuClick} 
+          onClick={(e) => {
+            e.stopPropagation();
+            handleMenuClick();
+          }}
           className="mr-2 bg-white/80 shadow-sm hover:bg-white/90"
           aria-label="Open menu"
         >
