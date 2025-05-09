@@ -2,7 +2,8 @@
 import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import { Place } from '@/data/mockPlaces';
-import { divIcon } from 'leaflet';
+import { LatLngTuple } from 'leaflet';
+import { createMarkerIcon } from '../markerUtils';
 
 interface MapMarkersProps {
   places: Place[];
@@ -10,31 +11,33 @@ interface MapMarkersProps {
   onMarkerClick: (id: string) => void;
 }
 
-const MapMarkers: React.FC<MapMarkersProps> = ({ 
-  places, 
-  activeMarkerId, 
-  onMarkerClick 
-}) => {
+const MapMarkers: React.FC<MapMarkersProps> = ({ places, activeMarkerId, onMarkerClick }) => {
   return (
     <>
-      {places.map((place) => (
-        <Marker
-          key={place.id}
-          position={[place.position.lat, place.position.lng]}
-          eventHandlers={{
-            click: () => onMarkerClick(place.id),
-          }}
-          opacity={activeMarkerId === null || activeMarkerId === place.id ? 1 : 0.6}
-        >
-          <Popup>
-            <div className="text-sm">
-              <h3 className="font-semibold">{place.name}</h3>
-              <p className="text-gray-600">{place.category}</p>
-              {place.description && <p className="mt-1">{place.description}</p>}
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      {places.map(place => {
+        // Check for both position and location properties to handle different place formats
+        const lat = place.position ? place.position.lat : (place.location ? place.location.lat : undefined);
+        const lng = place.position ? place.position.lng : (place.location ? place.location.lng : undefined);
+        
+        // Only create marker if coordinates are valid numbers
+        if (lat !== undefined && lng !== undefined && !isNaN(lat) && !isNaN(lng)) {
+          const position: LatLngTuple = [lat, lng];
+          const isActive = activeMarkerId === place.id;
+          
+          return (
+            <Marker
+              key={place.id}
+              position={position}
+              eventHandlers={{
+                click: () => onMarkerClick(place.id)
+              }}
+            >
+              <Popup>{place.name}</Popup>
+            </Marker>
+          );
+        }
+        return null;
+      })}
     </>
   );
 };
