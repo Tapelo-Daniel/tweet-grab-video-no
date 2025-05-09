@@ -1,0 +1,67 @@
+
+/* Grid layouts */
+.card-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* Glass morphism */
+.glass {
+  @apply bg-background/80 backdrop-blur-sm border border-border/40;
+}
+
+/* Registration form responsive fixes */
+@media (max-width: 640px) {
+  .form-container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .form-card {
+    padding: 0.75rem;
+  }
+  
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .form-container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Prevent horizontal scrolling */
+.prevent-overflow {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Scrollable content that won't cause page overflow */
+.contained-scroll-area {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Registration form container consistency */
+.form-container {
+  min-height: auto;
+  padding-bottom: 2rem;
+}
+
+/* Recommendations page carousel fixes */
+@media (max-width: 640px) {
+  .recommendations-container .embla__slide {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .carousel-item-recommendations {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
+}

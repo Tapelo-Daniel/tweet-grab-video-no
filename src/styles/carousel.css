@@ -1,0 +1,28 @@
+
+/* Reset CarouselContent styles for mobile */
+@media (max-width: 768px) {
+  .embla__container {
+    margin-left: 0 !important; 
+  }
+}
+
+/* Remove carousel item padding */
+.embla__slide {
+  padding-left: 0 !important;
+}
+
+/* Improved carousel controls positioning */
+.embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.embla__button.embla__button--prev {
+  left: 8px;
+}
+
+.embla__button.embla__button--next {
+  right: 8px;
+}

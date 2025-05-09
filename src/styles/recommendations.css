@@ -1,0 +1,90 @@
+
+/* Fix for PlaceCard on mobile */
+@media (max-width: 768px) {
+  .place-card-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* Recommendations page specific styles */
+.carousel-item-recommendations {
+  padding-right: 1rem;
+}
+
+/* Remove padding for recommendations page */
+.recommendations-page {
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .carousel-item-recommendations {
+    padding-right: 0.5rem !important;
+  }
+  
+  .carousel-item-recommendations .place-card-container {
+    width: 100% !important; 
+    margin: 0;
+  }
+}
+
+/* Keep slim width */
+section.relative {
+  max-width: 80% !important;
+  margin: 0 auto;
+}
+
+/* For smaller screens, add horizontal padding to prevent floating look */
+@media (max-width: 640px) {
+  section.relative {
+    max-width: 70% !important;
+    margin: 0 auto;
+  }
+}
+
+
+.carousel {
+  display: flex;
+  overflow-x: hidden; /* prevents horizontal scroll */
+  gap: 16px; /* small gap between items */
+  padding: 16px;
+  width: 100%;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  padding-right: 0.5rem !important;
+  padding-left: 0rem !important;
+}
+
+.carousel-content {
+  display: flex;
+}
+
+/* Adjust carousel navigation on mobile */
+@media (max-width: 640px) {
+  .embla__button {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Fixing overflow issues */
+.content-page {
+  height: auto;
+  overflow-y: auto;
+  padding-bottom: 2rem;
+}
+
+/* Ensure recommendations container doesn't overflow */
+.recommendations-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
