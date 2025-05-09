@@ -46,6 +46,7 @@ const AppSidebar = ({ className }: AppSidebarProps = {}) => {
       : item
   );
 
+  // Render both sidebars but control visibility with conditional rendering for mobile
   return (
     <>
       {!isMobile ? (
@@ -62,7 +63,10 @@ const AppSidebar = ({ className }: AppSidebarProps = {}) => {
           navItems={updatedNavItems}
           legalItems={legalItems}
           currentPath={location.pathname}
-          onClose={() => setOpenMobile(false)}
+          onClose={() => {
+            console.log('Closing mobile sidebar');
+            setOpenMobile(false);
+          }}
           onLinkClick={handleLinkClick}
         />
       )}

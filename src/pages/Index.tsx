@@ -50,7 +50,7 @@ const Index = () => {
           variant="ghost" 
           size="icon" 
           onClick={handleMenuClick} 
-          className="mr-2 bg-white/80 shadow-sm"
+          className="mr-2 bg-white/80 shadow-sm hover:bg-white/90"
           aria-label="Open menu"
         >
           <Menu className="h-5 w-5" />

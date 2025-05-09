@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { X, UserRound, LogIn, LogOut } from 'lucide-react';
@@ -55,8 +55,21 @@ const MobileSidebar = ({
 
   console.log('MobileSidebar rendered with isOpen:', isOpen);
 
+  // Effect to add body overflow hidden when sidebar is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <>
+      {/* Backdrop overlay - only render when isOpen is true */}
       {isOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
@@ -65,7 +78,11 @@ const MobileSidebar = ({
         />
       )}
       
-      <div className={`fixed inset-y-0 left-0 w-4/5 max-w-[300px] bg-background z-50 transform transition-transform duration-300 ease-in-out shadow-xl ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      {/* Sidebar panel */}
+      <div className={cn(
+        "fixed inset-y-0 left-0 w-4/5 max-w-[300px] bg-background z-50 transform transition-transform duration-300 ease-in-out shadow-xl",
+        isOpen ? 'translate-x-0' : '-translate-x-full'
+      )}>
         <div className="flex flex-col h-full">
           <div className="p-4 flex items-center justify-between border-b border-sidebar-border">
             <div className="flex items-center gap-3">

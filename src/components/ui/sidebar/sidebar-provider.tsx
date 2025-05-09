@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import { TooltipProvider } from "@radix-ui/react-tooltip"
 
@@ -54,10 +55,11 @@ const SidebarProvider = React.forwardRef<
 
     // Helper to toggle the sidebar.
     const toggleSidebar = React.useCallback(() => {
+      console.log('Toggling sidebar. Current mobile state:', openMobile, 'isMobile:', isMobile);
       return isMobile
         ? setOpenMobile((open) => !open)
         : setOpen((open) => !open)
-    }, [isMobile, setOpen, setOpenMobile])
+    }, [isMobile, setOpen, openMobile])
 
     // Adds a keyboard shortcut to toggle the sidebar.
     React.useEffect(() => {
