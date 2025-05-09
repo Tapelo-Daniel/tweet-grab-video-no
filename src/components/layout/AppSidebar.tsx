@@ -30,7 +30,12 @@ const AppSidebar = ({ className }: AppSidebarProps = {}) => {
     };
   }, []);
   
+  useEffect(() => {
+    console.log('AppSidebar: openMobile state changed:', openMobile);
+  }, [openMobile]);
+  
   const handleLinkClick = () => {
+    console.log('Link clicked, closing mobile sidebar');
     setOpenMobile(false);
   };
 

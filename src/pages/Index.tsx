@@ -20,6 +20,7 @@ const Index = () => {
   };
   
   const handleMenuClick = () => {
+    console.log('Menu button clicked, opening mobile sidebar');
     setOpenMobile(true);
   };
 

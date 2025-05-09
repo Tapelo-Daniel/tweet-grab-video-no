@@ -12,6 +12,7 @@ const MobileMenuButton = ({ onClick }: MobileMenuButtonProps) => {
   const { setOpenMobile } = useSidebar();
   
   const handleClick = () => {
+    console.log('Mobile menu button clicked, opening sidebar');
     setOpenMobile(true);
     if (onClick) onClick();
   };

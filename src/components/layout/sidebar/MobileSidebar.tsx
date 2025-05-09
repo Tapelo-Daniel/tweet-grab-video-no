@@ -53,6 +53,8 @@ const MobileSidebar = ({
     onClose();
   };
 
+  console.log('MobileSidebar rendered with isOpen:', isOpen);
+
   return (
     <>
       {isOpen && (
@@ -82,6 +84,7 @@ const MobileSidebar = ({
               variant="ghost"
               size="icon"
               onClick={onClose}
+              aria-label="Close menu"
             >
               <X className="h-5 w-5" />
             </Button>
