@@ -45,7 +45,13 @@ const Index = () => {
       
       {/* Floating UI elements that overlay the map */}
       <div className="absolute top-0 left-0 right-0 z-20 px-4 py-4 flex items-center">
-        <Button variant="ghost" size="icon" onClick={handleMenuClick} className="mr-2 bg-white/80 shadow-sm">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={handleMenuClick} 
+          className="mr-2 bg-white/80 shadow-sm"
+          aria-label="Open menu"
+        >
           <Menu className="h-5 w-5" />
         </Button>
         
